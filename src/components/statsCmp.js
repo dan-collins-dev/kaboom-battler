@@ -4,7 +4,7 @@
  * @param {number} maxHp    The starting max health of the parent
  * @param {number} att      The starting attack stat of the parent
  * @param {number} def      The starting defense stat of the parent
- * @return {Object} Stats Component
+ * @return {Object}         Stats Component
  */
 const stats = (maxHp, att, def) => {
     let maxHealth = maxHp;

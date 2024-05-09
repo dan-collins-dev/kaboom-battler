@@ -25,6 +25,7 @@ export const loadAssets = () => {
             bottom: 2,
         }
     })
+    loadSprite("slime", "./assets/sprites/slime.png")
 
     loadFont("PressStart2P", "./assets/fonts/PressStart2P-Regular.ttf");
 }
