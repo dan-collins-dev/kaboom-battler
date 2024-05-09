@@ -1,5 +1,4 @@
 import stats from "../components/statsCmp"
-
 /**
  * Creates the Player object
  * @returns The Player object

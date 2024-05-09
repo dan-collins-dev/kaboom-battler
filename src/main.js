@@ -1,49 +1,15 @@
 "use strict"
-import { loadAssets } from "./init.js"
-import stats from "./components/statsCmp.js"
-import createPlayer from "./entities/player.js"
+import { loadAssets} from "./init"
+import stats from "./components/statsCmp"
+import createPlayer from "./entities/player"
+import testRoom1 from "./scenes/testingRoom"
+
 
 loadAssets()
+const p = createPlayer()
 
 debug.inspect = true
+console.log(`Current Starting Health: ${p.getCurrentHealth()}`)
+p.setCurrentHealth(3);
+go("test1", {p})
 
-const slime1 = add([
-    sprite("slime"),
-    pos(16*5, 0),
-    // body(),
-    area(),
-    stats(3, 1, 1)
-])
-const player = createPlayer()
-let pressed = false
-onKeyDown("w", async () => {
-    if (!pressed) {
-        pressed = true
-        await tween(player.pos.y, player.pos.y - 16, player.speed, (p) => player.pos.y = p, easings.linear)
-        pressed = false
-    }
-})
-
-onKeyDown("s", async () => {
-    if (!pressed) {
-        pressed = true
-        await tween(player.pos.y, player.pos.y + 16, player.speed, (p) => player.pos.y = p, easings.linear)
-        pressed = false
-    }
-})
-
-onKeyDown("d", async () => {
-    if (!pressed) {
-        pressed = true
-        await tween(player.pos.x, player.pos.x + 16, player.speed, (p) => player.pos.x = p, easings.linear)
-        pressed = false
-    }
-})
-
-onKeyDown("a", async () => {
-    if (!pressed) {
-        pressed = true
-        await tween(player.pos.x, player.pos.x - 16, player.speed, (p) => player.pos.x = p, easings.linear)
-        pressed = false
-    }
-})
